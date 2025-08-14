@@ -5,7 +5,7 @@ const products = [{
     stars: 4.5,
     count: 87
   },
-  priceCent: 1090
+  priceCents: 1090
 }, {
   image: '../images/products/intermediate-composite-basketball.jpg',
   name: 'Intermediate Size Basketball',
@@ -13,9 +13,9 @@ const products = [{
     stars: 4,
     count: 127
   },
-  priceCent: 2095
+  priceCents: 2095
 }, {
-  image: '"../images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
+  image: `../images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg`,
   name: 'Adults Plain Cotton T-Shirt - 2 Pack',
   rating: {
     stars: 4.5,
@@ -47,7 +47,7 @@ products.forEach(product => {
       </div>
 
       <div class="product-price">
-        ${product.priceCents / 100}
+        $${(product.priceCents / 100).toFixed(2)}
       </div>
 
       <div class="product-quantity-container">
@@ -81,5 +81,5 @@ products.forEach(product => {
 
 console.log(productsHTML);
 
-document.querySelector('.js-products.grid')
+document.querySelector('.js-products-grid')
   .innerHTML = productsHTML
