@@ -93,10 +93,9 @@ document.querySelectorAll('.js-add-to-cart')
       });
   });
 
-let added = document.querySelector('.js-added-to-cart')
-
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
+    let added = document.querySelector('.js-added-to-cart')
     button.addEventListener('click', () => {
       added.classList.add('added')
       added.classList.remove('added-to-cart')
