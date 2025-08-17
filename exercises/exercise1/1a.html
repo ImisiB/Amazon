@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Load a font called Roboto from Google Fonts. -->
+    <link rel="shortcut icon" href="../../images/amazon-mobile-logo-white.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,12 +17,12 @@
     <!-- Here are the CSS files for this page. -->
     <link rel="stylesheet" href="../../styles/shared/general.css">
     <link rel="stylesheet" href="../../styles/shared/amazon-header.css">
-    <link rel="stylesheet" href="/exercises/exercise1/1a.css">
+    <link rel="stylesheet" href="../../styles/pages/amazon.css">
   </head>
   <body>
     <div class="amazon-header">
       <div class="amazon-header-left-section">
-        <a href="../../code/amazon.html" class="header-link">
+        <a href="./1a.html" class="header-link">
           <img class="amazon-logo"
             src="../../images/amazon-logo-white.png">
           <img class="amazon-mobile-logo"
@@ -43,9 +44,9 @@
           <span class="orders-text">& Orders</span>
         </a>
 
-        <a class="cart-link header-link" href="../../code/checkout.html">
+        <a class="cart-link header-link" href="./1a-checkout.html">
           <img class="cart-icon" src="../../images/icons/cart-icon.png">
-          <div class="js-cart-quantity cart-quantity">0</div>
+          <div class="js-cart-quantity cart-quantity"></div>
           <div class="cart-text">Cart</div>
         </a>
       </div>
@@ -57,8 +58,7 @@
       </div>
     </div>
 
-    <script src="1a-cart.js"></script>
-    <script src="1a-products.js"></script>
-    <script src="1a.js"></script>
+
+    <script type="module" src="./1a.js"></script>
   </body>
 </html>
