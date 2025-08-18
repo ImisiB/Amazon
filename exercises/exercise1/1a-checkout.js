@@ -34,7 +34,7 @@ cart.forEach((cartItem) => {
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="js-quantity-label quantity-label">${cartItem.quantity}</span>
+              Quantity: <span class="js-quantity-label-${productId} quantity-label">${cartItem.quantity}</span>
             </span>
             <span class="js-update-link update-quantity-link link-primary" data-product-id=${matchingProduct.id}>
               Update
@@ -176,16 +176,7 @@ document.querySelectorAll('.js-save-link')
     );
     const newQuantity = Number(quantityInput.value);
 
+    document.querySelector(`.js-quantity-label-${productId}`)
+      .innerHTML = newQuantity
   });
 });
-
-document.querySelectorAll('.js-save-link')
-.forEach(link => {
-  link.addEventListener('click', () => {
-    const productId = link.dataset.productId;
-
-    const updatedCart = document.querySelector(`.js-quantity-${productId}`)
-
-    document.querySelector('.js-quantity-label').innerHTML = document.querySelector('.quantity-input').value
-  })
-})
