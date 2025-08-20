@@ -1,4 +1,4 @@
-import { cart, removeFromCart } from "./1a-cart.js";
+import { cart, removeFromCart, updateQuantity } from "./1a-cart.js";
 import { products } from "./1a-products.js";
 import { formatCurrency } from "../../scripts/utils/money.js";
 
@@ -123,7 +123,6 @@ function updateCartQuantity() {
 
   document.querySelector('.js-checkout')
     .innerHTML = `${cartQuantity} items`;
-
 };
 
 updateCartQuantity()
@@ -164,12 +163,6 @@ document.querySelectorAll('.js-update-link')
     container.classList.add('is-editing-quantity');
   });
 });
-function newCartQuantity() {
-  const productId = link.dataset.productId;
-
-  document.querySelector(`.js-quantity-label-${productId}`)
-    .innerHTML = newQuantity
-}
 document.querySelectorAll('.js-save-link')
 .forEach((link) => {
   link.addEventListener('click', () => {
@@ -186,8 +179,17 @@ document.querySelectorAll('.js-save-link')
 
     document.querySelector(`.js-quantity-label-${productId}`)
       .innerHTML = newQuantity
-      updateCartQuantity();
-
-      newCartQuantity()
+      updateQuantity(productId, newQuantity);
   });
+});
+
+
+document.querySelectorAll('.js-save-link')
+.forEach((link) => {
+  link.addEventListener('click', () => {
+    
+    const newQuantity = cart.quantity
+    document.querySelector('.js-checkout')
+      .innerHTML = `${newQuantity} items`
+  })
 });

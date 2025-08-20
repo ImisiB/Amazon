@@ -10,6 +10,12 @@ if(!cart) {
   }
   ];
 }
+export function updateQuantity(productId, newQuantity) {
+  productId = newQuantity;
+  saveToStorage()
+}
+
+
 function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart))
 }
