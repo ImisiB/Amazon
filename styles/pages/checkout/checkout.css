@@ -108,6 +108,8 @@
 }
 
 .product-name {
+  /* width: 250px; */
+  /* max-width: 300px; */
   font-weight: 700;
   margin-right: 10px;
   margin-bottom: 8px;
@@ -139,11 +141,14 @@
 }
 
 .delivery-options-title {
-  /* width: fit-content; */
+  width: fit-content;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
+.delivery-options{
+  max-width: 200px;
+}
 .delivery-option {
   display: grid;
   grid-template-columns: 24px 1fr;
@@ -159,7 +164,7 @@
 
 .delivery-option-date {
   color: rgb(0, 118, 0);
-  width: 600px;
+  /* width: 600px; */
   font-weight: 500;
   margin-bottom: 3px;
 }
