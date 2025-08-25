@@ -2,10 +2,7 @@ import  dayjs  from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js"
 
 const day = dayjs();
 
-
-let date = day.format('dddd')
-
-function isWeekend(date) {
+export default function isWeekend(date) {
   if(date === 'Saturday') {
     console.log('It is weekend');
   } else if (date === 'Sunday'){
@@ -19,5 +16,7 @@ function isWeekend(date) {
   }
 }
 
-isWeekend(date);
+const dateOfTheWeek = day.format('dddd')
+
+isWeekend(dateOfTheWeek);
 
