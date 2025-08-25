@@ -9,7 +9,7 @@ export default function isWeekend(date) {
     console.log('It is weekend')
   } else if (date === 'sunday'){
     console.log('It is weekend')
-  } else if (date === 'Saturday'){
+  } else if (date === 'saturday'){
     console.log('It is weekend')
   } else {
     console.log(date)
