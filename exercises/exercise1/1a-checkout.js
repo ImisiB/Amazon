@@ -127,32 +127,6 @@ function updateCartQuantity() {
 
 updateCartQuantity()
 
-
-/*
-document.querySelectorAll('.js-update-link')
-  .forEach((link) => {
-    const productId = link.dataset.productId;
-    link.addEventListener('click', () => {
-        
-      // document.querySelector(`.js-quantity-label-${productId}`).forEach(element => {element.classList.add('is-editing-quantity')})
-      document.querySelector(`.js-quantity-label-${productId}`).forEach(element => {element.classList.add('hide-quantity')})
-          document.querySelector(`.quantity-input-${productId}`).forEach(element => {element.classList.add('is-editing-quantity')})
-          document.querySelector(`.save-quantity-link-${productId}`).forEach(element => {element.classList.add('is-editing-quantity')})
-          document.querySelector(`.js-update-link-${productId}`).forEach
-            .innerHTML = ''
-      document.querySelector(`.js-save-quantity-link-${productId}`)
-        .addEventListener('click', () => {
-          document.querySelector(`.js-quantity-label-${productId}`).forEach(element => {element.classList.remove('hide-quantity')})
-          document.querySelector(`.js-quantity-input-${productId}`).forEach(element => {element.classList.remove('is-editing-quantity')})
-          document.querySelector(`.js-save-quantity-link-${productId}`).forEach(element => {element.classList.remove('is-editing-quantity')})
-          document.querySelector(`.js-update-link`)
-            .innerHTML = 'Update'
-          
-        })
-
-    })
-  })
-*/
 document.querySelectorAll('.js-update-link')
 .forEach((link) => {
   link.addEventListener('click', () => {
@@ -179,17 +153,22 @@ document.querySelectorAll('.js-save-link')
 
     document.querySelector(`.js-quantity-label-${productId}`)
       .innerHTML = newQuantity
-      updateQuantity(productId, newQuantity);
+    updateQuantity(productId, newQuantity);
+      
+    cart.forEach(cartItem => {
+      cartItem.quantity = newQuantity;
+    });
+
+
+      
+      let totalCartQuantity = 0
+
+      cart.forEach(cartItem => {
+        totalCartQuantity += cartItem.quantity
+      });
+
+      document.querySelector('.js-checkout')
+        .innerText = `${totalCartQuantity} items`;
   });
 });
 
-
-document.querySelectorAll('.js-save-link')
-.forEach((link) => {
-  link.addEventListener('click', () => {
-    
-    const newQuantity = cart.quantity
-    document.querySelector('.js-checkout')
-      .innerHTML = `${newQuantity} items`
-  })
-});
