@@ -1,7 +1,7 @@
 import { cart } from "../../data/cart.js";
 
 export default function renderCheckoutHeader() {
-  let checkoutHeader;
+  let checkoutHeader = '';
 
   let cartQuantity = 0;
 
@@ -29,6 +29,7 @@ export default function renderCheckoutHeader() {
         </div>
       </div>
   `;
-
-  document.querySelector('.js-checkout-header').innerHTML = checkoutHeader
+  document.querySelector('.js-checkout-header').innerHTML = checkoutHeader;
 }
+
+
