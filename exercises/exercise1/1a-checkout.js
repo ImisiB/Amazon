@@ -2,6 +2,9 @@ import { cart, removeFromCart, updateQuantity } from "./1a-cart.js";
 import { products } from "./1a-products.js";
 import { formatCurrency } from "../../scripts/utils/money.js";
 
+updateCartQuantity()
+
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -99,7 +102,7 @@ cart.forEach((cartItem) => {
 })
 
 document.querySelector('.js-order-summary')
-  .innerHTML = cartSummaryHTML
+  .innerHTML = cartSummaryHTML;
 
 document.querySelectorAll('.js-delete-link')
   .forEach((link) => {
@@ -109,6 +112,7 @@ document.querySelectorAll('.js-delete-link')
 
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       container.remove()
+      updateCartQuantity();
     });
   });
 // const cartQuantity = updateCartQuantity();
@@ -123,9 +127,10 @@ function updateCartQuantity() {
 
   document.querySelector('.js-checkout')
     .innerHTML = `${cartQuantity} items`;
+
+  return cartQuantity;
 };
 
-updateCartQuantity()
 
 document.querySelectorAll('.js-update-link')
 .forEach((link) => {
@@ -151,14 +156,21 @@ document.querySelectorAll('.js-save-link')
     );
     const newQuantity = Number(quantityInput.value);
 
-    document.querySelector(`.js-quantity-label-${productId}`)
-      .innerHTML = newQuantity
-    updateQuantity(productId, newQuantity);
-      
-    cart.forEach(cartItem => {
+    let cartNewQuantity = cart.forEach(cartItem => {
       cartItem.quantity = newQuantity;
-    });
-    updateCartQuantity();
+    })
+
+    document.querySelector(`.js-quantity-label-${productId}`)
+      .innerHTML = cartNewQuantity
+    updateQuantity(productId, newQuantity);
+    document.querySelector('.js-checkout')
+      .innerHTML = cartNewQuantity;
   });
 });
 
+document.querySelectorAll('.js-save-link')
+.forEach((link) => {
+  link.addEventListener('click', () => {
+    updateCartQuantity();
+  });
+});
