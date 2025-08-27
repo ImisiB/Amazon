@@ -158,17 +158,6 @@ document.querySelectorAll('.js-save-link')
     cart.forEach(cartItem => {
       cartItem.quantity = newQuantity;
     });
-    // let cartQuantity = 0;
-
-    // cart.forEach((cartItem) => {
-    //   cartQuantity += cartItem.quantity;
-    // })
-  
-    // document.querySelector('.js-cart-quantity')
-    //   .innerHTML = cartQuantity;
-
-    //   document.querySelector('.js-checkout')
-    //     .innerText = `${cartQuantity} items`;
     updateCartQuantity();
   });
 });

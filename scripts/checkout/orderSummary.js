@@ -19,13 +19,41 @@ export function renderOrderSummary() {
     const deliveryOption = getDeliveryOption(deliveryOptionId);
     
     const today = dayjs();
-    const deliveryDate = today.add(
+    let deliveryDate = today.add(
       deliveryOption.deliveryDays, 'days'
     );
 
     let dateString = deliveryDate.format(
       'dddd, MMMM D'
-  );
+    );
+  //   function calculateDeliveryDate() {
+  //     let ifWeekend = 0;
+
+  //     const today = dayjs();
+  //     let deliveryDate = today.add(
+  //       ifWeekend, 'days'
+  //     );
+  
+  //     let dateString = deliveryDate.format(
+  //       'dddd, MMMM D'
+  //     );
+      
+  //   if(dateString.includes('Saturday')) {
+  //     deliveryDate.add(ifWeekend + 2, 'days');
+  //     console.log('hello')
+  //   } else if (dateString.includes('Sunday')){
+  //     deliveryDate.add(2, 'days');
+  //   } else if (dateString.includes('sunday')){
+  //     deliveryDate.add(2, 'days');
+  //   } else if (dateString.includes('saturday')){
+  //     deliveryDate.add(2, 'days');
+  //   } else {
+  //     console.log(dateString)
+  //   }
+  //   return dateString;
+  // }
+    
+
 
 
     cartSummaryHTML += `
@@ -138,3 +166,21 @@ document.querySelectorAll('.js-delivery-option')
     });
   });
 }
+
+/*
+export function calculateDeliveryDate(deliveryOption, date) {
+  if(deliveryOption.includes('Saturday')) {
+    // date.add(2, ='days');
+    deliveryOption + 1
+  } else if (deliveryOption.includes('Sunday')){
+    deliveryOption + 1;
+  } else if (deliveryOption.includes('sunday')){
+    deliveryOption + 1;
+  } else if (deliveryOption.includes('saturday')){
+    deliveryOption + 2
+  } else {
+    console.log(deliveryOption)
+  }
+}
+
+*/
