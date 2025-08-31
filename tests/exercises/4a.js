@@ -1,7 +1,8 @@
-import {addToCart, cart, loadFromStorage} from '../../data/cart.js'
+import {addToCart, cart, loadFromStorage, updateDeliveryOption} from '../../data/cart.js'
 import formatCurrency from "../../scripts/utils/money.js";
 import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js';
 import { products } from '../../data/products.js';
+import { deliveryOptions } from '../../data/deliveryOptions.js';
 
 describe('Test suite: formatCurrency', () => {
   it('Convert cents into dollars', () => {
@@ -122,20 +123,48 @@ describe('Test suite: renderOrderSummary', () => {
 });
 
 describe('Test suite: removeFromCart', () => {
-  beforeEach(() => {
-    spyOn(localStorage, 'setItem');
-    spyOn(localStorage, 'getItem');
-  })
-
   it('Remove a productId that is in the cart', () => {
+    spyOn(localStorage, 'setItem')
+    spyOn(localStorage, 'getItem')
     expect(cart).toEqual(cart)
 
     expect(localStorage.setItem).toHaveBeenCalledTimes(0)
   })
   it('Remove a productId that is not in the cart', () => {
-    
   })
   it('Update delivery option', () => {
-    document.querySelector('.js-delivery-option').click()
+    const option = document.querySelectorAll('.js-delivery-option-input')
+
+    if(option) {
+      console.log('hello')
+      if(option[2]) {
+        option[2].click();
+      }
+    } else if(!option) {
+      console.log('error')
+    }
+    const totalPrice = document.querySelector('.js-payment-summary-money');
+    const shippingPrice = document.querySelector('.js-shipping');
+    
+    expect(cart.length).toEqual(cart.length)
+    expect(deliveryOptions[2].id).toEqual('3')
+    if(totalPrice) {
+      expect(totalPrice.innerHTML).toEqual('$63.50')
+    }
+    if(shippingPrice) {
+      expect(shippingPrice.innerHTML).toEqual('$14.98')
+    }
+  })
+})
+
+
+describe('Update delivery option', () => {
+  it('update the delivery option of product', () => {
+    spyOn(localStorage, 'setItem')
+    spyOn(localStorage, 'getItem')
+
+    expect(localStorage.setItem).toHaveBeenCalledTimes(0)
+    
+    
   })
 })

@@ -120,7 +120,7 @@ function deliveryOptionsHTML(matchingProduct, cartItem) {
           data-delivery-option-id="${deliveryOption.id}">
           <input type="radio"
             ${isChecked?'checked':''}
-            class="delivery-option-input"
+            class="js-delivery-option-input-${deliveryOption.id}js-delivery-option-input delivery-option-input"
             name="delivery-option-${matchingProduct.id}">
           <div>
             <div class="delivery-option-date">
