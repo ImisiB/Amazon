@@ -165,6 +165,6 @@ describe('Update delivery option', () => {
 
     expect(localStorage.setItem).toHaveBeenCalledTimes(0)
     
-    
+    var undefined = 'hello'
   })
 })
