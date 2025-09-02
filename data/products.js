@@ -32,7 +32,28 @@ class Product{
     return `../images/ratings/rating-${this.rating.stars * 10}.png`
   }
   getPrice() {
-  return `$${formatCurrency(this.priceCents)}`
+    return `$${formatCurrency(this.priceCents)}`
+  }
+
+  extraInfoHtml() {
+    return '';
+  }
+}
+
+class Clothing extends Product{
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHtml() {
+    // super.extraInfoHtml();
+    return `
+    <a href="${this.sizeChartLink}" target="_blank">
+      Size Chart
+    </a>`;
   }
 }
 
@@ -83,7 +104,7 @@ export const products = [
     type: "clothing",
     sizeChartLink: "../images/clothing-size-chart.png"
   },
-  {
+{
     id: "54e0eccd-8f36-462b-b68a-8182611d9add",
     image: "../images/products/black-2-slot-toaster.jpg",
     name: "2 Slot Toaster - Black",
@@ -696,5 +717,9 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
+  if(productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  }
+
   return new Product(productDetails);
 });
