@@ -88,7 +88,7 @@ document.querySelectorAll('.js-add-to-cart')
 // document.querySelector('.js-products-grid')
 //   .innerHTML = productsHTML
 
-/*
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
@@ -125,20 +125,18 @@ document.querySelectorAll('.js-add-to-cart')
       });
   });
 
-document.querySelectorAll('.js-add-to-cart')
-  .forEach((button) => {
-    let added = document.querySelector('.js-added-to-cart')
-    button.addEventListener('click', () => {
-      added.classList.add('added')
-      added.classList.remove('added-to-cart')
-      setTimeout(() => {
-        added.classList.remove('added')
-        added.classList.add('added-to-cart')
-      }, 2000)
-      clearTimeout(() => {
-        added.classList.remove('added')
-        added.classList.add('added-to-cart')
-      }, 2000)
+document.querySelector('.added')
+  .forEach(() => {
+    document.querySelectorAll('.js-add-to-cart')
+      .forEach((button) => {
+        let added = document.querySelector('.js-added-to-cart')
+        button.addEventListener('click', () => {
+          added.classList.add('added')
+          added.classList.remove('added-to-cart')
+          setTimeout(() => {
+            added.classList.remove('added')
+            added.classList.add('added-to-cart')
+          }, 2000)
     })
-  });
-*/
+  })
+})

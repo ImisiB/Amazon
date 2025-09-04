@@ -1,8 +1,8 @@
-import {addToCart, cart, loadFromStorage, updateDeliveryOption} from '../../data/cart.js'
-import formatCurrency from "../../scripts/utils/money.js";
-import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js';
-import { products } from '../../data/products.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import {addToCart, cart, loadFromStorage, updateDeliveryOption} from '../../../data/cart.js'
+import formatCurrency from "../../../scripts/utils/money.js";
+import {renderOrderSummary} from '../../../scripts/checkout/orderSummary.js';
+import { products } from '../../../data/products.js';
+import { deliveryOptions } from '../../../data/deliveryOptions.js';
 
 describe('Test suite: formatCurrency', () => {
   it('Convert cents into dollars', () => {
