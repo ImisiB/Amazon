@@ -47,9 +47,8 @@ describe('test suite: renderOrderSummary', () => {
     expect(
       document.querySelector(`.js-product-quantity-${productId2}`).innerText
     ).toContain('Quantity: 1');
-
   });
-
+ 
   it('removes a product', () => {
     document.querySelector(`.js-delete-link-${productId1}`).click();
     expect(
