@@ -7,16 +7,19 @@ import { loadCart } from "../data/cart.js";
 // import '../data/backend-practice.js'
 
 async function loadPage() {
-  console.log('load page');
-
   await loadProductsFetch()
 
-  return 'value 2'
+  const value = await new Promise((resolve) => {
+    loadCart(() => {
+      resolve('value3');
+    });
+  })
+
+  renderOrderSummary();
+  renderPaymentSummary();
+  renderCheckoutHeader();
 }
-loadPage().then((value) => {
-  console.log('next step');
-  console.log(value);
-});
+loadPage();
 
 /*
 Promise.all([
