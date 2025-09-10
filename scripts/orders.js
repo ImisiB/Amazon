@@ -17,6 +17,7 @@ function order() {
 
       const matchingProduct = getProduct(productId);
   
+
       const deliveryOptionId = orderItem.deliveryOptionId;
   
       const deliveryOption = getDeliveryOption(deliveryOptionId);
@@ -86,7 +87,7 @@ function order() {
               </div>
 
               <div class="product-actions">
-                <a href="tracking.html">
+                <a href="tracking.html?orderId=${matchingProduct.id}&productId=${productId}">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
