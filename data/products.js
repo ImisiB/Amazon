@@ -81,7 +81,7 @@ export class Appliance extends Product{
   }
 }
 
-export let products = []
+// export let products = []
 
 export function loadProductsFetch() {
   const promise = fetch(
@@ -112,6 +112,7 @@ loadProductsFetch().then(() => {
   console.log('next step');
 });
 */
+export let products = []
 export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
   
@@ -126,7 +127,7 @@ export function loadProducts(fun) {
       return new Product(productDetails);
     });
 
-    console.log('load products');
+    // console.log('load products');
     
     fun();
   })
@@ -140,7 +141,7 @@ export function loadProducts(fun) {
 }
 
 /*
-export const products = [
+export let products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "../images/products/athletic-cotton-socks-6-pairs.jpg",

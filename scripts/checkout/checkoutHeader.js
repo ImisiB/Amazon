@@ -1,5 +1,6 @@
 import { cart } from "../../data/cart.js";
 
+renderCheckoutHeader()
 export default function renderCheckoutHeader() {
   let checkoutHeader = '';
 
