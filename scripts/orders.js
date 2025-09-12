@@ -11,10 +11,14 @@ function order() {
   let productPriceCents = 0;
 
   let shippingPriceCents = 0;
+  let orderId;
   cart.forEach((orderItem) => {
     loadProducts(() => {
       const productId = orderItem.productId;
 
+      for (let i = 0; i < orders.length; i++) {
+        orderId = orders[i].id
+      }
       const matchingProduct = getProduct(productId);
   
 
@@ -87,7 +91,7 @@ function order() {
               </div>
 
               <div class="product-actions">
-                <a href="tracking.html?orderId=dea46253-2b0c-452d-9fc8-c704410fb84c&productId=${productId}">
+                <a href="tracking.html?orderId=${orderId}&productId=${productId}">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
