@@ -15,7 +15,7 @@ function tracking() {
     for (let i = 0; i < products.length; i++) {
       if (url.searchParams.get('productId') === products[i].id){
         let cartItemQuantity = 0;
-
+      
       cart.forEach((cartItem) => {
         if (cartItem.productId ==  products[i].id){ 
           cartItemQuantity += cartItem.quantity 
@@ -53,14 +53,7 @@ function tracking() {
           // const trackingRange =  (time - orders[i].orderTime) / (orders[i].products[0].estimatedDeliveryTime
           // - orders[i].orderTime)
 
-          trackingRange = 5
-          console.log(Math.round(( (time - orderTimeStamp) / (estimatedDeliveryTimeStamp - orderTimeStamp)) * 100))
-
-          console.log(( (time - orderTimeStamp) / (estimatedDeliveryTimeStamp - orderTimeStamp)) * 100);
-          // console.log(orders[i].products[0].estimatedDeliveryTime);
-          // console.log(orders[i].orderTime);
-          
-          
+          trackingRange = Math.round(( (time - orderTimeStamp) / (estimatedDeliveryTimeStamp - orderTimeStamp)) * 100)
     }
   }
 

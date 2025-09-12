@@ -12,20 +12,21 @@ function order() {
 
   let shippingPriceCents = 0;
   let orderId;
+  
   cart.forEach((orderItem) => {
     loadProducts(() => {
       const productId = orderItem.productId;
 
-      for (let i = 0; i < orders.length; i++) {
-        orderId = orders[i].id
-      }
       const matchingProduct = getProduct(productId);
-  
 
       const deliveryOptionId = orderItem.deliveryOptionId;
   
       const deliveryOption = getDeliveryOption(deliveryOptionId);
-  
+
+      for (let i = 0; i < orders.length; i++) {
+        orderId = orders[i].id
+      }
+      
       const today = dayjs();
       const deliveryDate = today.add(
         deliveryOption.deliveryDays,
@@ -91,7 +92,7 @@ function order() {
               </div>
 
               <div class="product-actions">
-                <a href="tracking.html?orderId=${orderId}&productId=${productId}">
+                <a href="tracking.html?orderId=${matchingProduct.id}&productId=${productId}">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
